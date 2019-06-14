@@ -2,6 +2,7 @@
   "name": "@inmagik/magik-react-hooks",
   "version": "0.1.1",
   "description": "Collection of common (and useful) hooks",
+  "author": "InMagik srl <info@inmagik.com>",
   "authors": [
     "Giovanni Fumagalli <giovanni.fumagalli@inmagik.com>",
     "Alberto Osio <alberto.osio@gmail.com"
