@@ -1,18 +1,19 @@
 {
-  "name": "common-hooks",
-  "version": "1.0.0",
+  "name": "@inmagik/magik-react-hooks",
+  "version": "0.1.1",
   "description": "Collection of common (and useful) hooks",
-  "author": "osioalberto@gmail.com",
+  "authors": [
+    "Giovanni Fumagalli <giovanni.fumagalli@inmagik.com>",
+    "Alberto Osio <alberto.osio@gmail.com"
+  ],
   "license": "MIT",
-  "repository": "inmagik/common-hooks",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
+  "repository": "inmagik/magik-react-hooks",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
   },
   "scripts": {
+    "prebuild": "rimraf lib && node scripts/makeDefs.js",
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "build": "rollup -c",
@@ -23,8 +24,11 @@
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
+    "query-string": "^6.7.0",
     "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0"
+    "react-dom": "^15.0.0 || ^16.0.0",
+    "react-router": "^5.0.1",
+    "reconnectingwebsocket": "^1.0.0"
   },
   "devDependencies": {
     "@svgr/rollup": "^2.4.1",
@@ -47,15 +51,12 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "^1.1.4",
-    "rollup": "^0.64.1",
+    "rollup": "^1.15.4",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-commonjs": "^9.1.3",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-url": "^1.4.0"
-  },
-  "files": [
-    "dist"
-  ]
+  }
 }
