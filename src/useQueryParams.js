@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import qs from 'query-string'
-import { useRouter } from './useRouter'
+import useRouter from './useRouter'
 
-export function useQueryParams() {
+export default function useQueryParams() {
   const { location, history } = useRouter()
 
   const queryParams = useMemo(() => qs.parse(location.search), [location.search])

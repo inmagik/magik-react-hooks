@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react'
-import { useRawWs } from './useRawWs'
+import useRawWs from './useRawWs'
 
-export const useJsonWs = (url, callback) => {
+export default function useJsonWs(url, callback) {
   const savedCallback = useRef()
 
   useEffect(() => {

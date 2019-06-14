@@ -1,7 +1,7 @@
 import { useEffect, useRef, useCallback } from 'react'
 import ReconnectingWebSocket from 'reconnectingwebsocket'
 
-export const useRawWs = (url, callback) => {
+export default function useRawWs(url, callback) {
   const savedCallback = useRef()
 
   useEffect(() => {
@@ -34,3 +34,4 @@ export const useRawWs = (url, callback) => {
     return () => ws.close()
   }, [url])
 }
+

@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { __RouterContext } from 'react-router'
 
-export function useRouter() {
+export default function useRouter() {
   return useContext(__RouterContext)
 }
