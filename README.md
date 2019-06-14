@@ -1,4 +1,4 @@
-# common-hooks
+# magik-react-hooks
 
 > Collection of common (and useful) hooks
 
