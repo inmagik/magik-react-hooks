@@ -1,0 +1,6 @@
+{
+  "name": "@inmagik/magik-react-hooks/useJsonWs",
+  "private": true,
+  "main": "../lib/useJsonWs.cjs.js",
+  "module": "../lib/useJsonWs.esm.js"
+}

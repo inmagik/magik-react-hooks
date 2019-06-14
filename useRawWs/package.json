@@ -1,0 +1,6 @@
+{
+  "name": "@inmagik/magik-react-hooks/useRawWs",
+  "private": true,
+  "main": "../lib/useRawWs.cjs.js",
+  "module": "../lib/useRawWs.esm.js"
+}

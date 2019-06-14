@@ -1,39 +1,37 @@
-import babel from 'rollup-plugin-babel'
-import commonjs from 'rollup-plugin-commonjs'
-import external from 'rollup-plugin-peer-deps-external'
-import postcss from 'rollup-plugin-postcss'
-import resolve from 'rollup-plugin-node-resolve'
-import url from 'rollup-plugin-url'
-import svgr from '@svgr/rollup'
-
+// import babel from 'rollup-plugin-babel'
+import fs from 'fs'
 import pkg from './package.json'
 
-export default {
-  input: 'src/index.js',
+const hooks = fs
+  .readdirSync('src')
+  .filter(item => {
+    return item[0] !== '.' && item.match(/^(use)[\w]+(\.)(js)$/i) !== null
+  })
+
+const stripExtension = file => file.replace(/\.[^\.]+$/, '')
+
+const vendors = []
+  // Make all external dependencies to be exclude from rollup
+  .concat(
+    Object.keys(pkg.dependencies || []),
+    Object.keys(pkg.peerDependencies || []),
+  )
+
+export default ['esm', 'cjs'].map(format => ({
+  input: {
+    ...hooks.reduce((all, hook) => ({
+      ...all,
+      [stripExtension(hook)]: 'src/' + hook
+    }), {})
+  },
   output: [
     {
-      file: pkg.main,
-      format: 'cjs',
-      sourcemap: true
-    },
-    {
-      file: pkg.module,
-      format: 'es',
-      sourcemap: true
+      dir: 'lib',
+      entryFileNames: '[name].[format].js',
+      exports: 'named',
+      format
     }
   ],
-  plugins: [
-    external(),
-    postcss({
-      modules: true
-    }),
-    url(),
-    svgr(),
-    babel({
-      exclude: 'node_modules/**',
-      plugins: [ 'external-helpers' ]
-    }),
-    resolve(),
-    commonjs()
-  ]
-}
+  external: vendors
+  // plugins: [babel({ exclude: 'node_modules/**' })],
+}))

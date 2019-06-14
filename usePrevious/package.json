@@ -1,0 +1,6 @@
+{
+  "name": "@inmagik/magik-react-hooks/usePrevious",
+  "private": true,
+  "main": "../lib/usePrevious.cjs.js",
+  "module": "../lib/usePrevious.esm.js"
+}

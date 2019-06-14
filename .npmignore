@@ -1,0 +1,18 @@
+# dependencies
+/node_modules
+
+/src
+/scripts
+/example
+
+
+rollup.config.js
+yarn.lock
+
+.babelrc
+.editorconfig
+.eslintrc
+.gitignore
+.travis.yml
+
+*.tgz
