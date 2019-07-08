@@ -17,20 +17,22 @@ export default function useRawWs(url, callback) {
   }, [])
 
   useEffect(() => {
-    const ws = new ReconnectingWebSocket(url)
+    if (url !== null) {
+      const ws = new ReconnectingWebSocket(url)
 
-    ws.addEventListener('open', e => {
-      sendEvent('open', e)
-    })
+      ws.addEventListener('open', e => {
+        sendEvent('open', e)
+      })
 
-    ws.addEventListener('message', e => {
-      sendEvent('message', e)
-    })
+      ws.addEventListener('message', e => {
+        sendEvent('message', e)
+      })
 
-    ws.addEventListener('close', e => {
-      sendEvent('close', e)
-    })
+      ws.addEventListener('close', e => {
+        sendEvent('close', e)
+      })
 
-    return () => ws.close()
+      return () => ws.close()
+    }
   }, [url])
 }
