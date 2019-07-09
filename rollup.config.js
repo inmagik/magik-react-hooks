@@ -1,4 +1,3 @@
-// import babel from 'rollup-plugin-babel'
 import fs from 'fs'
 import pkg from './package.json'
 

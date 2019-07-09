@@ -17,6 +17,7 @@
     "prebuild": "rimraf lib && node scripts/makeDefs.js",
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
+    "dev-example": "webpack-dev-server",
     "build": "rollup -c",
     "start": "rollup -c -w",
     "prepare": "yarn run build",
@@ -32,14 +33,15 @@
     "reconnectingwebsocket": "^1.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
     "@svgr/rollup": "^2.4.1",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.5",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
+    "babel-eslint": "9.x",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.6",
     "cross-env": "^5.1.4",
+    "css-loader": "^2.1.1",
     "eslint": "^5.0.1",
     "eslint-config-react-app": "^4.0.1",
     "eslint-config-standard": "^11.0.0",
@@ -50,8 +52,11 @@
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-standard": "^3.1.0",
     "gh-pages": "^1.2.0",
+    "query-string": "^6.8.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "^1.1.4",
     "rollup": "^1.15.4",
     "rollup-plugin-babel": "^3.0.7",
@@ -59,6 +64,13 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-postcss": "^1.6.2",
-    "rollup-plugin-url": "^1.4.0"
+    "rollup-plugin-url": "^1.4.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "dependencies": {
+    "memoize-one": "^5.0.5"
   }
 }

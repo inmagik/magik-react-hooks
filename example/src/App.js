@@ -1,13 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import ExampleComponent from 'common-hooks'
+import TestComponent from './TestComponent'
 
-export default class App extends Component {
-  render () {
-    return (
-      <div>
-        <ExampleComponent text='Modern React component module' />
-      </div>
-    )
-  }
+const App = () => {
+
+  return (
+    <Router>
+      <Route component={TestComponent} />
+    </Router>
+  )
 }
+
+export default App
