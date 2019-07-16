@@ -12,7 +12,7 @@ export default function useRawWs(url, callback) {
     if (typeof savedCallback.current === 'function') {
       savedCallback.current(eventType, eventObj)
     } else if (typeof savedCallback.current === 'object' && savedCallback.current !== null && savedCallback.current[eventType]) {
-      savedCallback.current(eventObj)
+      savedCallback.current[eventType](eventObj)
     }
   }, [])
 
