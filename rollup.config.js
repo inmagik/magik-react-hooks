@@ -1,5 +1,6 @@
 import fs from 'fs'
 import pkg from './package.json'
+import babel from 'rollup-plugin-babel'
 
 const hooks = fs
   .readdirSync('src')
@@ -31,6 +32,6 @@ export default ['esm', 'cjs'].map(format => ({
       format
     }
   ],
-  external: vendors
-  // plugins: [babel({ exclude: 'node_modules/**' })],
+  external: vendors,
+  plugins: [babel({ exclude: 'node_modules/**' })]
 }))

@@ -22,8 +22,6 @@ Available hooks
 
 * useConstant
 * usePrevious
-* useRawWs _(requires reconnectingwebsocket)_
-* useJsonWs _(requires reconnectingwebsocket)_
 * useRouter _(requires react-router)_
 * useQueryParams _(requires query-string)_
 
@@ -46,48 +44,6 @@ import usePrevious from '@inmagik/magik-react-hooks/usePrevious'
 const prev = usePrevious(someProp)
 const anotherPrev = usePrevious(someFunc)
 ```
-
-### useRawWs
-Manages a connection to a server via WebSocket protocol
-
-The configuration of the hook requires the URL the server is listening to and second parameter, which
-acts as a callback. 
-
-This second parameter can either be a function with two arguments
-
-```js
-import useRawWs from '@inmagik/magik-react-hooks/useRawWs'
-
-
-// eventType is either `open`, `message` or `close`
-useRawWs(WS_URL, (eventType, event) => { /* handle event */ })
-```
-
-or an object with the following structure
-
-```js
-import useRawWs from '@inmagik/magik-react-hooks/useRawWs'
-
-const handlers = {
-  open: event => { /* handle open event */ },
-  message: event => { /* handle message event */ },
-  close: event => { /* handle close event */ },
-}
-
-// eventType is either `open`, `message` or `close`
-useRawWs(WS_URL, handlers)
-```
-
-### useJsonWs
-Simplified version of useRawWs, useful when the socket uses JSON encoded messages and the open and close events don't need to be handled
-
-```js
-import useJsonWs from '@inmagik/magik-react-hooks/useJsonWs'
-
-useJsonWs(WS_URL, data => { /* some data have been received... */})
-```
-
-> `data` has already been `JSON.parse`d when the handler is called
 
 ### useRouter
 Injects React Router context into current component
@@ -117,7 +73,7 @@ The `encDec` param is the encoder and decoder. This param is used when convertin
 
 1. A function with the signature `(fromQs: any, toQs: any) => any`
   
-  In this case, the same function is used both for encoding and decoding. In encoding mode, the first parameter is `undefined` and the second one holds the whole date object to be written in the qyuery string, and the return value is passed in `query-string.stringify()`. In decoding mode, the first parameter holds the output of `query-string.parse()`, while the second one is undefined. In this last case, the return value of the function is returned from the hook as the `params` entity
+  In this case, the same function is used both for encoding and decoding. In encoding mode, the first parameter is `undefined` and the second one holds the whole date object to be written in the query string, and the return value is passed in `query-string.stringify()`. In decoding mode, the first parameter holds the output of `query-string.parse()`, while the second one is undefined. In this last case, the return value of the function is returned from the hook as the `params` entity
 
 2. An object with the signature `{ encoding: any => any, decoding: any => any }`
 
