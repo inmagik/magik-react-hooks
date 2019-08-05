@@ -8,7 +8,7 @@ const hooks = fs
     return item[0] !== '.' && item.match(/^(use)[\w]+(\.)(js)$/i) !== null
   })
 
-const stripExtension = file => file.replace(/\.[^\.]+$/, '')
+const stripExtension = file => file.replace(/\.[^.]+$/, '')
 
 const vendors = []
   // Make all external dependencies to be exclude from rollup
@@ -22,7 +22,8 @@ export default ['esm', 'cjs'].map(format => ({
     ...hooks.reduce((all, hook) => ({
       ...all,
       [stripExtension(hook)]: 'src/' + hook
-    }), {})
+    }), {}),
+    'qpUtils': 'src/qpUtils.js'
   },
   output: [
     {

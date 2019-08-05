@@ -1,0 +1,6 @@
+{
+  "name": "@inmagik/magik-react-hooks/useQueryParam",
+  "private": true,
+  "main": "../lib/useQueryParam.cjs.js",
+  "module": "../lib/useQueryParam.esm.js"
+}

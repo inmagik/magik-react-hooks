@@ -1,6 +1,6 @@
 {
   "name": "@inmagik/magik-react-hooks",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Collection of common (and useful) hooks",
   "author": "InMagik srl <info@inmagik.com>",
   "authors": [
@@ -45,10 +45,13 @@
     "eslint-config-react-app": "^4.0.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-config-standard-react": "^6.0.0",
+    "eslint-plugin-flowtype": "^3.13.0",
     "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-react": "^7.10.0",
+    "eslint-plugin-react-hooks": "^1.6.1",
     "eslint-plugin-standard": "^3.1.0",
     "gh-pages": "^1.2.0",
     "query-string": "^6.8.1",
