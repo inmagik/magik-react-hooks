@@ -89,7 +89,7 @@ The `encDec` param is the encoder and decoder. This param is used when convertin
 
 5. A mixture of (2), (3) and (4)
 
-  You can also specify a global encoder and key-based decoders, or any combination. Keep in mind that key-based decoders and encoders take priority over global `encode` and `decode` functions, and that the global `encode` and `decode` functions are not automatically memoized, while key-based ones are.
+  You can also specify a global encoder and key-based decoders, or any combination. Refer to the `TestComponent` defined in the example.
 
 The library ships with some common encoders and decoders, which are 
 
