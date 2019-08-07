@@ -11,14 +11,14 @@ export default function useQueryParams(qpEncoder = false, options = {}) {
   const queryParams = useMemo(() => parser.decode(qs.parse(location.search)), [location.search, parser])
 
   const setQueryParams = useCallback((newQueryParams, historyMethod = 'push') => {
-    const currentQueryParams = qs.parse(location.search)
+    const currentQueryParams = queryParams
     const queryString = qs.stringify(parser.encode({
       ...currentQueryParams,
       ...newQueryParams
     }), options)
     const url = `${location.pathname}?${queryString}`
     history[historyMethod](url)
-  }, [location.search, location.pathname, parser, options, history])
+  }, [queryParams, parser, options, location.pathname, history])
 
   return [queryParams, setQueryParams]
 }
