@@ -60,8 +60,11 @@ Injects in the current component the params set in the query string, optionally 
 ```js
 import useQueryParams from '@inmagik/magik-react-hooks/useQueryParams'
 
-const [params, setParams] = useQueryParams(encDec, opts)
+const [params, setParams] = useQueryParams(queryString, setQueryString, encDec, opts)
 ```
+
+The `queryString` parameter is the querystring to parse and to extract params from
+The `setQueryString` callback is called whenever there is the need to update the querystring (for instance, because `setParams` was called)
 
 The `opts` parameter is an object that is passed as the second parameter to `query-string.stringify()`, and can be used to control the behaviour of the `query-string` library. Usually, you want to skip URL encoding, like
 
@@ -121,14 +124,30 @@ The `TestComponent` in the `example` is built using this hook
 
 When writing your own encoders and decoders, you can take those as examples
 
+### useRouterQueryParams
+Same as `useQueryParams`, but it reads from and writes to React Router's `location.search`, hence the signature becomes: 
+
+```js
+import useRouterQueryParams from '@inmagik/magik-react-hooks/useRouterQueryParams'
+
+const [params, setParams] = useRouterQueryParams(encDec, opts)
+```
+
+Obviously, you can use this in a component that is a (deep) child of a `Router`
+
 ### useQueryParam
 Injects in the current component the a param set in the query string, optionally transformed with a decoder/encoder
 
 ```js
 import useQueryParam from '@inmagik/magik-react-hooks/useQueryParam'
 
-const [myParam, setMyParam] = useQueryParam(paramName, defaultValue, encDec, opts)
+const [myParam, setMyParam] = useQueryParam(queryString, setQueryString, paramName, defaultValue, encDec, opts)
 ```
+
+The `queryString` parameter is the querystring to parse and to extract params from
+The `setQueryString` callback is called whenever there is the need to update the querystring (for instance, because `setParams` was called)
+
+The `paramName` and `defaultValue` parameters have a pretty obvious meaning: they are the name of the param to return and the value to return in case the param is not found in the querystring
 
 The `opts` parameter is an object that is passed as the second parameter to `query-string.stringify()`, and can be used to control the behaviour of the `query-string` library. Usually, you want to skip URL encoding, like
 
@@ -149,6 +168,17 @@ The `encDec` param is the encoder and decoder. This param is used when convertin
 The `setMyParam` function returned by the hook is used to change the value of the parameter in the query string, and it is expected to be invoked with the next value for the parameter (like native `useState` without functional updates)
 
 The common encoders and decoders presented in previous section (`qpInt`, `qpFloat` and `qpDate`) are granted to work also with `useQueryParam`
+
+### useRouterQueryParam
+Same as `useQueryParam`, but it reads from and writes to React Router's `location.search`, hence the signature becomes: 
+
+```js
+import useRouterQueryParam from '@inmagik/magik-react-hooks/useRouterQueryParam'
+
+const [params, setParams] = useRouterQueryParam(paramName, defaultValue, encDec, opts)
+```
+
+Obviously, you can use this in a component that is a (deep) child of a `Router`
 
 ## License
 
