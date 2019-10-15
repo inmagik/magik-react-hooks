@@ -1,9 +1,9 @@
 import React from 'react'
-import useQueryParams from '@inmagik/magik-react-hooks/useQueryParams';
+import useRouterQueryParams from '@inmagik/magik-react-hooks/useRouterQueryParams';
 import { qpDate, qpInt } from '@inmagik/magik-react-hooks/qpUtils'
 
 const TestComponent = () => {
-  const [params, setParams] = useQueryParams({
+  const [params, setParams] = useRouterQueryParams({
     decode: arg => {
       console.log('decode called', { ...arg })
       return arg
@@ -20,7 +20,7 @@ const TestComponent = () => {
   console.log(params)
 
   const changeQs = () => {
-    setParams({ b: params.b + 1 })
+    setParams({ b: (params.b || 0) + 1 })
   }
 
   const changeQsDate = () => {

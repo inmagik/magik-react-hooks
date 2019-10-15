@@ -1,32 +1,29 @@
 import { useMemo, useCallback } from 'react'
 import qs from 'query-string'
-import useRouter from './useRouter'
 import useConstant from './useConstant'
 import { makeEncDec } from './EncDec/encdec'
 
 
-export default function useQueryParam(name, defaultValue, qpEncoder = false, options = {}) {
-  const { location, history } = useRouter()
+export default function useQueryParam(queryString, setQueryString, name, defaultValue, qpEncoder = false, options = {}) {
   const parser = useConstant(() => makeEncDec(qpEncoder))
 
   const queryParams = useMemo(() => {
-    const allParams = qs.parse(location.search)
+    const allParams = qs.parse(queryString)
     if (allParams[name]) {
       return parser.decode(allParams[name])
     } else {
       return defaultValue
     }
-  }, [defaultValue, location.search, name, parser])
+  }, [defaultValue, name, parser, queryString])
 
-  const setQueryParams = useCallback((nextValue, historyMethod = 'push') => {
-    const currentQueryParams = qs.parse(location.search)
+  const setQueryParams = useCallback((nextValue, ...args) => {
+    const currentQueryParams = queryParams
     const queryString = qs.stringify({
       ...currentQueryParams,
       [name]: parser.encode(nextValue)
     }, options)
-    const url = `${location.pathname}?${queryString}`
-    history[historyMethod](url)
-  }, [location.search, location.pathname, name, parser, options, history])
+    setQueryString(queryString, ...args)
+  }, [queryParams, name, parser, options, setQueryString])
 
   return [queryParams, setQueryParams]
 }
