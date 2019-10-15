@@ -5,7 +5,7 @@
   "author": "InMagik srl <info@inmagik.com>",
   "authors": [
     "Giovanni Fumagalli <giovanni.fumagalli@inmagik.com>",
-    "Alberto Osio <alberto.osio@gmail.com>"
+    "Alberto Osio <osioalberto@gmail.com>"
   ],
   "license": "MIT",
   "repository": "inmagik/magik-react-hooks",
@@ -27,8 +27,8 @@
   "peerDependencies": {
     "prop-types": "^15.5.4",
     "query-string": "^6.7.0",
-    "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "react-router": "^5.0.1"
   },
   "devDependencies": {
