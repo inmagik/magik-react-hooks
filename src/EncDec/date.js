@@ -20,6 +20,6 @@ const DefaultDateLibraryEntry = arg => {
 }
 
 export const qpDate = (dateLibrary = DefaultDateLibraryEntry, format = 'YYYY-MM-DD HH:mm') => ({
-  encode: data => dateLibrary(data).format(format),
-  decode: data => dateLibrary(data).toDate()
+  encode: data => data && dateLibrary(data).format(format),
+  decode: data => data && dateLibrary(data).toDate()
 })
