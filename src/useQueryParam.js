@@ -7,12 +7,12 @@ import { makeEncDec } from './EncDec/encdec'
 export default function useQueryParam(queryString, setQueryString, name, defaultValue, qpEncoder = false, options = {}) {
   const parser = useConstant(() => makeEncDec(qpEncoder))
 
-  const queryParams = useMemo(() => {
+  const [param, queryParams] = useMemo(() => {
     const allParams = qs.parse(queryString)
     if (allParams[name]) {
-      return parser.decode(allParams[name])
+      return [parser.decode(allParams[name]), allParams]
     } else {
-      return defaultValue
+      return [defaultValue, allParams]
     }
   }, [defaultValue, name, parser, queryString])
 
@@ -25,5 +25,5 @@ export default function useQueryParam(queryString, setQueryString, name, default
     setQueryString(queryString, ...args)
   }, [queryParams, name, parser, options, setQueryString])
 
-  return [queryParams, setQueryParams]
+  return [param, setQueryParams]
 }
