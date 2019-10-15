@@ -1,0 +1,6 @@
+{
+  "name": "@inmagik/magik-react-hooks/useRouterQueryParams",
+  "private": true,
+  "main": "../lib/useRouterQueryParams.cjs.js",
+  "module": "../lib/useRouterQueryParams.esm.js"
+}
