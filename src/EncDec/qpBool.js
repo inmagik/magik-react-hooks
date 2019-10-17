@@ -4,10 +4,10 @@ export const qpBool = (trueValue = "1", falseValue = "0") => {
     encode: data => data !== undefined && data !== null ? repr[!!data ? 1 : 0] : undefined,
     decode: str => {
       if (str !== undefined) {
-        if (`${str}`.toLowerCase() === repr[1]) {
+        if (`${str}` === repr[1]) {
           return true
         }
-        else if (`${str}`.toLowerCase() === repr[0]) {
+        else if (`${str}` === repr[0]) {
           return false
         }
         else {
