@@ -1,6 +1,6 @@
 import React from 'react'
 import useRouterQueryParams from '@inmagik/magik-react-hooks/useRouterQueryParams';
-import { qpDate, qpInt } from '@inmagik/magik-react-hooks/qpUtils'
+import { qpDate, qpInt, qpNullable, qpBool } from '@inmagik/magik-react-hooks/qpUtils'
 
 const TestComponent = () => {
   const [params, setParams] = useRouterQueryParams({
@@ -13,8 +13,9 @@ const TestComponent = () => {
       decode: str => parseInt(str, 16) || 0
     },
     bin: (fromQs, toQs) => (fromQs && parseInt(fromQs, 2)) || (toQs && toQs.toString(2)) || 0,
-    b: qpInt(),
-    d: qpDate()
+    b: qpNullable(qpInt(), "null"),
+    d: qpDate(),
+    x: qpNullable(qpBool("1", "0"), "U")
   }, { encode: false })
 
   console.log(params)
@@ -36,6 +37,12 @@ const TestComponent = () => {
       </pre>
       <button onClick={changeQs}>Click me</button>
       <button onClick={changeQsDate}>Go to now</button>
+      <button onClick={() => setParams({ b: undefined })}>Set b to undefined</button>
+      <button onClick={() => setParams({ b: null })}>Set b to null</button>
+      <button onClick={() => setParams({ x: true })}>Set x to true</button>
+      <button onClick={() => setParams({ x: false })}>Set x to false</button>
+      <button onClick={() => setParams({ x: null })}>Set x to null</button>
+      <button onClick={() => setParams({ x: undefined })}>Set x to undefined</button>
     </div>
   )
 }
