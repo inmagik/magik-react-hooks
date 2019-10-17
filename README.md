@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/inmagik/magik-react-hooks.svg?branch=master)](https://travis-ci.com/inmagik/magik-react-hooks)
+
+
 # magik-react-hooks
 A collection of common (and useful) hooks
 

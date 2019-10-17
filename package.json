@@ -16,6 +16,7 @@
   "scripts": {
     "prebuild": "rimraf lib && node scripts/makeDefs.js",
     "test": "jest",
+    "test-coverage": "jest --coverage",
     "dev-example": "webpack-dev-server",
     "build": "rollup -c",
     "start": "rollup -c -w"
@@ -38,6 +39,7 @@
     "babel-eslint": "9.x",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
+    "codecov": "^3.6.1",
     "cross-env": "^5.1.4",
     "css-loader": "^2.1.1",
     "eslint": "^5.0.1",
