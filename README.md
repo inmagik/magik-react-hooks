@@ -70,7 +70,7 @@ The `setQueryString` callback is called whenever there is the need to update the
 The `opts` parameter is an object that is passed as the second parameter to `query-string.stringify()`, and can be used to control the behaviour of the `query-string` library. Usually, you want to skip URL encoding, like
 
 ```js
-// Assuming get_current_querystring and set_current_querystring to be defined and to work as expected...
+// Assuming get_current_querystring and set_current_querystring to be (well) defined
 const qs = get_current_querystring()
 const setQs = qs => set_current_querystring(qs)
 const [params, setParams] = useQueryParams(qs, setQs, encDec, { encode: false })
@@ -101,13 +101,19 @@ The `encDec` param is the encoder and decoder. This param is used when convertin
 The library ships with some common encoders and decoders, which are 
 
 ```js
-import { qpDate, qpInt, qpFloat, qpBool, qpNullable } from '@inmagik/magik-react-hooks/qpUtils'
+import { 
+  qpDate,
+  qpInt,
+  qpFloat,
+  qpBool,
+  qpNullable
+} from '@inmagik/magik-react-hooks/qpUtils'
 ```
 
 They should be used with pattern (4), like
 
 ```js
-// Assuming get_current_querystring and set_current_querystring to be defined and to work as expected...
+// Assuming get_current_querystring and set_current_querystring to be (well) defined
 const qs = get_current_querystring()
 const setQs = qs => set_current_querystring(qs)
 const [params, setParams] = useQueryParams(qs, setQs, {
@@ -149,7 +155,14 @@ Injects in the current component the a param set in the query string, optionally
 ```js
 import useQueryParam from '@inmagik/magik-react-hooks/useQueryParam'
 
-const [myParam, setMyParam] = useQueryParam(queryString, setQueryString, paramName, defaultValue, encDec, opts)
+const [myParam, setMyParam] = useQueryParam(
+  queryString,
+  setQueryString,
+  paramName,
+  defaultValue,
+  encDec,
+  opts
+)
 ```
 
 The `queryString` parameter is the querystring to parse and to extract params from
@@ -160,10 +173,12 @@ The `paramName` and `defaultValue` parameters have a pretty obvious meaning: the
 The `opts` parameter is an object that is passed as the second parameter to `query-string.stringify()`, and can be used to control the behaviour of the `query-string` library. Usually, you want to skip URL encoding, like
 
 ```js
-// Assuming get_current_querystring and set_current_querystring to be defined and to work as expected...
+// Assuming get_current_querystring and set_current_querystring to be (well) defined
 const qs = get_current_querystring()
 const setQs = qs => set_current_querystring(qs)
-const [myParam, setMyParam] = useQueryParam(qs, setQs, paramName, defaultValue, encDec, { encode: false })
+const [myParam, setMyParam] = useQueryParam(
+  qs, setQs, paramName, defaultValue, encDec, { encode: false }
+)
 ```
 
 The `encDec` param is the encoder and decoder. This param is used when converting data to be written in the query string and the other way round. There are two options for this param
