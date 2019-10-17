@@ -69,7 +69,10 @@ The `setQueryString` callback is called whenever there is the need to update the
 The `opts` parameter is an object that is passed as the second parameter to `query-string.stringify()`, and can be used to control the behaviour of the `query-string` library. Usually, you want to skip URL encoding, like
 
 ```js
-const [params, setParams] = useQueryParams(encDec, { encode: false })
+// Assuming get_current_querystring and set_current_querystring to be defined and to work as expected...
+const qs = get_current_querystring()
+const setQs = qs => set_current_querystring(qs)
+const [params, setParams] = useQueryParams(qs, setQs, encDec, { encode: false })
 ```
 
 The `encDec` param is the encoder and decoder. This param is used when converting data to be written in the query string and the other way round. There are several options for this param
@@ -97,14 +100,16 @@ The `encDec` param is the encoder and decoder. This param is used when convertin
 The library ships with some common encoders and decoders, which are 
 
 ```js
-import { qpDate, qpInt, qpFloat } from '@inmagik/magik-react-hooks/qpUtils'
+import { qpDate, qpInt, qpFloat, qpBool, qpNullable } from '@inmagik/magik-react-hooks/qpUtils'
 ```
 
 They should be used with pattern (4), like
 
 ```js
-
-const [params, setParams] = useQueryParams({
+// Assuming get_current_querystring and set_current_querystring to be defined and to work as expected...
+const qs = get_current_querystring()
+const setQs = qs => set_current_querystring(qs)
+const [params, setParams] = useQueryParams(qs, setQs, {
   from: qpDate(),
   to: qpDate()
 })
@@ -119,6 +124,10 @@ The `qpDate` invocation supports two optional params:
 The `qpInt` invocation supports one (optional) param: the `radix` (defaults to 10)
 
 The `qpFloat` invocation does not support any param
+
+The `qpBool` invocation supports two arguments: the former is the encoding of the boolean value `true`, the latter is the same for `false`. Both them are coerced to strings, so pass suitable values.
+
+The `qpNullable` encoder is a sort of meta-encoder: its invocation requires you to pass another encoder as the first parameter (this can be another `qpXXX` or a custom encoder), which will be used to encode/decode the value when it is not null, and a string that is used to represent the value `null` in the querystring (this should be a value that is not part of the data domain)
 
 The `TestComponent` in the `example` is built using this hook
 
@@ -152,7 +161,10 @@ The `paramName` and `defaultValue` parameters have a pretty obvious meaning: the
 The `opts` parameter is an object that is passed as the second parameter to `query-string.stringify()`, and can be used to control the behaviour of the `query-string` library. Usually, you want to skip URL encoding, like
 
 ```js
-const [myParam, setMyParam] = useQueryParam(paramName, defaultValue, encDec, { encode: false })
+// Assuming get_current_querystring and set_current_querystring to be defined and to work as expected...
+const qs = get_current_querystring()
+const setQs = qs => set_current_querystring(qs)
+const [myParam, setMyParam] = useQueryParam(qs, setQs, paramName, defaultValue, encDec, { encode: false })
 ```
 
 The `encDec` param is the encoder and decoder. This param is used when converting data to be written in the query string and the other way round. There are two options for this param
