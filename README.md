@@ -14,8 +14,6 @@ or
 yarn add @inmagik/magik-react-hooks
 ```
 
-> Remember to setup .npmrc file
-
 ## Docs
 
 Available hooks
@@ -118,7 +116,7 @@ const [params, setParams] = useQueryParams(qs, setQs, {
 })
 ```
 
-Remember to invoke them
+In order to allow for custom configuration of basic props, the library exports encoder/decoder builders, which must be invoked with configuration arguments to return the valid encoder/decoder
 
 The `qpDate` invocation supports two optional params:
 * `dateLib`: a moment-like date library
@@ -132,9 +130,7 @@ The `qpBool` invocation supports two arguments: the former is the encoding of th
 
 The `qpNullable` encoder is a sort of meta-encoder: its invocation requires you to pass another encoder as the first parameter (this can be another `qpXXX` or a custom encoder), which will be used to encode/decode the value when it is not null, and a string that is used to represent the value `null` in the querystring (this should be a value that is not part of the data domain)
 
-The `TestComponent` in the `example` is built using this hook
-
-When writing your own encoders and decoders, you can take those as examples
+Feel free to refer to the implementation of those encoders and decoders when you need to write some custom one
 
 ### useRouterQueryParams
 Same as `useQueryParams`, but it reads from and writes to React Router's `location.search`, hence the signature becomes: 
