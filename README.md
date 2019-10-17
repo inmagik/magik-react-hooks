@@ -24,6 +24,9 @@ Available hooks
 * usePrevious
 * useRouter _(requires react-router)_
 * useQueryParams _(requires query-string)_
+* useQueryParam _(requires query-string)_
+* useRouterQueryParams _(requires query-string and react-router)_
+* useRouterQueryParam _(requires query-string and react-router)_
 
 ### useConstant
 Keeps a constant value stable across renders
