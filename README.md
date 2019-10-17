@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/inmagik/magik-react-hooks.svg?branch=master)](https://travis-ci.com/inmagik/magik-react-hooks)
-
+[![codecov](https://codecov.io/gh/inmagik/magik-react-hooks/branch/master/graph/badge.svg)](https://codecov.io/gh/inmagik/magik-react-hooks)
 
 # magik-react-hooks
 A collection of common (and useful) hooks
