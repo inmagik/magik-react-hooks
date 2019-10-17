@@ -4,6 +4,7 @@
 /src
 /scripts
 /example
+/coverage
 
 
 rollup.config.js
@@ -16,3 +17,7 @@ yarn.lock
 .travis.yml
 
 *.tgz
+*.sh
+
+webpack.config.js
+.babelrc.js
