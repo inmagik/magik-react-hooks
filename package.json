@@ -15,14 +15,10 @@
   },
   "scripts": {
     "prebuild": "rimraf lib && node scripts/makeDefs.js",
-    "test": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
+    "test": "jest",
     "dev-example": "webpack-dev-server",
     "build": "rollup -c",
-    "start": "rollup -c -w",
-    "prepare": "yarn run build",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "start": "rollup -c -w"
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
