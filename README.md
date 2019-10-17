@@ -1,6 +1,5 @@
 # magik-react-hooks
-
-> Collection of common (and useful) hooks
+A collection of common (and useful) hooks
 
 ## Install
 
