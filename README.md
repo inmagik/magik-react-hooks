@@ -8,13 +8,13 @@ A collection of common (and useful) hooks
 ## Install
 
 ```bash
-npm install --save @inmagik/magik-react-hooks
+npm install --save magik-react-hooks
 ```
 
 or
 
 ```bash
-yarn add @inmagik/magik-react-hooks
+yarn add magik-react-hooks
 ```
 
 ## Docs
@@ -33,7 +33,7 @@ Available hooks
 Keeps a constant value stable across renders
 
 ```js
-import useConstant from '@inmagik/magik-react-hooks/useConstant'
+import useConstant from 'magik-react-hooks/useConstant'
 
 const constant = useConstant(23)
 const anotherConstant = useConstant(() => 42)
@@ -43,7 +43,7 @@ const anotherConstant = useConstant(() => 42)
 Injects into the current render the value of its argument during the previous render
 
 ```js
-import usePrevious from '@inmagik/magik-react-hooks/usePrevious'
+import usePrevious from 'magik-react-hooks/usePrevious'
 
 const prev = usePrevious(someProp)
 const anotherPrev = usePrevious(someFunc)
@@ -53,7 +53,7 @@ const anotherPrev = usePrevious(someFunc)
 Injects React Router context into current component
 
 ```js
-import useRouter from '@inmagik/magik-react-hooks/useRouter'
+import useRouter from 'magik-react-hooks/useRouter'
 
 const { history, location } = useRouter()
 ```
@@ -62,7 +62,7 @@ const { history, location } = useRouter()
 Injects in the current component the params set in the query string, optionally transformed with a decoder/encoder
 
 ```js
-import useQueryParams from '@inmagik/magik-react-hooks/useQueryParams'
+import useQueryParams from 'magik-react-hooks/useQueryParams'
 
 const [params, setParams] = useQueryParams(queryString, setQueryString, encDec, opts)
 ```
@@ -110,7 +110,7 @@ import {
   qpFloat,
   qpBool,
   qpNullable
-} from '@inmagik/magik-react-hooks/qpUtils'
+} from 'magik-react-hooks/qpUtils'
 ```
 
 They should be used with pattern (4), like
@@ -145,7 +145,7 @@ Feel free to refer to the implementation of those encoders and decoders when you
 Same as `useQueryParams`, but it reads from and writes to React Router's `location.search`, hence the signature becomes: 
 
 ```js
-import useRouterQueryParams from '@inmagik/magik-react-hooks/useRouterQueryParams'
+import useRouterQueryParams from 'magik-react-hooks/useRouterQueryParams'
 
 const [params, setParams] = useRouterQueryParams(encDec, opts)
 ```
@@ -156,7 +156,7 @@ Obviously, you can use this in a component that is a (deep) child of a `Router`
 Injects in the current component the a param set in the query string, optionally transformed with a decoder/encoder
 
 ```js
-import useQueryParam from '@inmagik/magik-react-hooks/useQueryParam'
+import useQueryParam from 'magik-react-hooks/useQueryParam'
 
 const [myParam, setMyParam] = useQueryParam(
   queryString,
@@ -202,7 +202,7 @@ The common encoders and decoders presented in previous section (`qpInt`, `qpFloa
 Same as `useQueryParam`, but it reads from and writes to React Router's `location.search`, hence the signature becomes: 
 
 ```js
-import useRouterQueryParam from '@inmagik/magik-react-hooks/useRouterQueryParam'
+import useRouterQueryParam from 'magik-react-hooks/useRouterQueryParam'
 
 const [params, setParams] = useRouterQueryParam(paramName, defaultValue, encDec, opts)
 ```
