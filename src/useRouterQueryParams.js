@@ -6,9 +6,13 @@ export default function useRouterQueryParams(qpEncoder = false, options = {}) {
   const { location, history } = useRouter()
 
   const setSearchStr = useCallback((nextQueryString, historyMethod = 'push') => {
-    const url = `${location.pathname}?${nextQueryString}`
+    /*
+     * WARNING: do not be tempted to direcly use "location" from outer scope here,
+     * since it changes at every render. This may cause an infinite render loop.
+     */
+    const url = `${history.location.pathname}?${nextQueryString}`
     history[historyMethod](url)
-  }, [location.pathname, history])
+  }, [history])
 
   const proxied = useQueryParams(location.search, setSearchStr, qpEncoder, options)
 

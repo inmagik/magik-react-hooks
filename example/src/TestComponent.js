@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useRouterQueryParams from '@inmagik/magik-react-hooks/useRouterQueryParams';
 import { qpDate, qpInt, qpNullable, qpBool } from '@inmagik/magik-react-hooks/qpUtils'
 
@@ -27,6 +27,10 @@ const TestComponent = () => {
   const changeQsDate = () => {
     setParams({ d: new Date() })
   }
+
+  useEffect(() => {
+    setParams({ hex: 15 })
+  }, [setParams])
 
   return (
     <div>
