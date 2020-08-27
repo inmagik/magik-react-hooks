@@ -23,7 +23,6 @@ Available hooks
 
 * useConstant
 * usePrevious
-* useRouter _(requires react-router)_
 * useQueryParams _(requires query-string)_
 * useQueryParam _(requires query-string)_
 * useRouterQueryParams _(requires query-string and react-router)_
@@ -47,15 +46,6 @@ import usePrevious from 'magik-react-hooks/usePrevious'
 
 const prev = usePrevious(someProp)
 const anotherPrev = usePrevious(someFunc)
-```
-
-### useRouter
-Injects React Router context into current component
-
-```js
-import useRouter from 'magik-react-hooks/useRouter'
-
-const { history, location } = useRouter()
 ```
 
 ### useQueryParams
@@ -82,7 +72,7 @@ const [params, setParams] = useQueryParams(qs, setQs, encDec, { encode: false })
 The `encDec` param is the encoder and decoder. This param is used when converting data to be written in the query string and the other way round. There are several options for this param
 
 1. A function with the signature `(fromQs: any, toQs: any) => any`
-  
+
   In this case, the same function is used both for encoding and decoding. In encoding mode, the first parameter is `undefined` and the second one holds the whole data object to be written in the query string, and the returned value is passed in `query-string.stringify()`. In decoding mode, the first parameter holds the output of `query-string.parse()`, while the second one is undefined. In this last case, the return value of the function is returned from the hook as the `params` entity
 
 2. An object with the signature `{ encoding: any => any, decoding: any => any }`
@@ -91,7 +81,7 @@ The `encDec` param is the encoder and decoder. This param is used when convertin
 
 3. An object with the signature `{ [prop]: { encoding: any => any, decoding: any => any }}`
 
-  This case allows to define distinct encoder and decoder functions for arbitrary keys. The logic is always the same except that if you define an encoder/decoder for a given prop, those functions will be invoked with the corresponding prop from the data object, and not with the whole object. 
+  This case allows to define distinct encoder and decoder functions for arbitrary keys. The logic is always the same except that if you define an encoder/decoder for a given prop, those functions will be invoked with the corresponding prop from the data object, and not with the whole object.
 
 4. An object with the signature `{ [prop]: (fromQs: any, toQs: any) => any}`
 
@@ -101,10 +91,10 @@ The `encDec` param is the encoder and decoder. This param is used when convertin
 
   You can also specify a global encoder and key-based decoders, or any combination. Refer to the `TestComponent` defined in the example.
 
-The library ships with some common encoders and decoders, which are 
+The library ships with some common encoders and decoders, which are
 
 ```js
-import { 
+import {
   qpDate,
   qpInt,
   qpFloat,
@@ -142,7 +132,7 @@ The `qpNullable` encoder is a sort of meta-encoder: its invocation requires you 
 Feel free to refer to the implementation of those encoders and decoders when you need to write some custom one
 
 ### useRouterQueryParams
-Same as `useQueryParams`, but it reads from and writes to React Router's `location.search`, hence the signature becomes: 
+Same as `useQueryParams`, but it reads from and writes to React Router's `location.search`, hence the signature becomes:
 
 ```js
 import useRouterQueryParams from 'magik-react-hooks/useRouterQueryParams'
@@ -187,7 +177,7 @@ const [myParam, setMyParam] = useQueryParam(
 The `encDec` param is the encoder and decoder. This param is used when converting data to be written in the query string and the other way round. There are two options for this param
 
 1. A function with the signature `(fromQs: any, toQs: any) => any`
-  
+
   In this case, the same function is used both for encoding and decoding. In encoding mode, the first parameter is `undefined` and the second one holds the param to be written in the query string. The returned value is merged in current query params and then passed in `query-string.stringify()`. In decoding mode, the first parameter holds the output of `query-string.parse()[paramName]`, while the second one is undefined. In this last case, the return value of the function is returned from the hook as the `myParam` entity. If no param with the given name could be found in the query string, the default value is returned without invoking the decoder.
 
 2. An object with the signature `{ encoding: any => any, decoding: any => any }`
@@ -199,7 +189,7 @@ The `setMyParam` function returned by the hook is used to change the value of th
 The common encoders and decoders presented in previous section (`qpInt`, `qpFloat` and `qpDate`) are granted to work also with `useQueryParam`
 
 ### useRouterQueryParam
-Same as `useQueryParam`, but it reads from and writes to React Router's `location.search`, hence the signature becomes: 
+Same as `useQueryParam`, but it reads from and writes to React Router's `location.search`, hence the signature becomes:
 
 ```js
 import useRouterQueryParam from 'magik-react-hooks/useRouterQueryParam'

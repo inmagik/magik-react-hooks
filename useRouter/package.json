@@ -1,6 +1,0 @@
-{
-  "name": "@inmagik/magik-react-hooks/useRouter",
-  "private": true,
-  "main": "../lib/useRouter.cjs.js",
-  "module": "../lib/useRouter.esm.js"
-}
