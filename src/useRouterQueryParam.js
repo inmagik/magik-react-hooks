@@ -1,9 +1,10 @@
 import { useCallback } from "react"
-import useRouter from "./useRouter"
+import { useHistory, useLocation } from "react-router"
 import useQueryParam from "./useQueryParam"
 
 export default function useRouterQueryParam(name, defaultValue, qpEncoder = false, options = {}) {
-  const { location, history } = useRouter()
+  const location = useLocation()
+  const history = useHistory()
 
   const setSearchStr = useCallback((nextQueryString, historyMethod = 'push') => {
     /*
