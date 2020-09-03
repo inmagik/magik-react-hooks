@@ -1,5 +1,5 @@
 {
-  "name": "@inmagik/magik-react-hooks/useConstant",
+  "name": "magik-react-hooks/useConstant",
   "private": true,
   "main": "../lib/useConstant.cjs.js",
   "module": "../lib/useConstant.esm.js"
