@@ -15,7 +15,7 @@ rimraf.sync('qpUtils')
 hooks.forEach(hook => {
   fs.mkdirSync(hook);
   fs.writeFileSync(hook + '/package.json', JSON.stringify({
-    name: '@inmagik/magik-react-hooks/' + hook,
+    name: 'magik-react-hooks/' + hook,
     private: true,
     main: '../lib/' + hook + '.cjs.js',
     module: '../lib/' + hook + '.esm.js'
@@ -24,7 +24,7 @@ hooks.forEach(hook => {
 
 fs.mkdirSync('qpUtils');
 fs.writeFileSync('qpUtils/package.json', JSON.stringify({
-  name: '@inmagik/magik-react-hooks/qpUtils',
+  name: 'magik-react-hooks/qpUtils',
   private: true,
   main: '../lib/qpUtils.cjs.js',
   module: '../lib/qpUtils.esm.js'

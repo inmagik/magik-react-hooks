@@ -1,5 +1,5 @@
 {
-  "name": "@inmagik/magik-react-hooks/qpUtils",
+  "name": "magik-react-hooks/qpUtils",
   "private": true,
   "main": "../lib/qpUtils.cjs.js",
   "module": "../lib/qpUtils.esm.js"
