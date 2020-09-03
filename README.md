@@ -23,6 +23,7 @@ Available hooks
 
 * useConstant
 * usePrevious
+* useRouter _(requires react-router)_  **:warning: Deprecated!**
 * useQueryParams _(requires query-string)_
 * useQueryParam _(requires query-string)_
 * useRouterQueryParams _(requires query-string and react-router)_
@@ -47,6 +48,21 @@ import usePrevious from 'magik-react-hooks/usePrevious'
 const prev = usePrevious(someProp)
 const anotherPrev = usePrevious(someFunc)
 ```
+
+### useRouter :warning: Deprecated!
+Injects React Router context into current component
+
+```js
+import useRouter from 'magik-react-hooks/useRouter'
+
+const { history, location } = useRouter()
+```
+
+use:
+```js
+import { useLocation, useHistory } from 'react-router'
+```
+instead.
 
 ### useQueryParams
 Injects in the current component the params set in the query string, optionally transformed with a decoder/encoder
