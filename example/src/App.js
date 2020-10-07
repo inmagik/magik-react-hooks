@@ -1,15 +1,25 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import TestComponent from './TestComponent'
 import SingleTestComponent from './SingleTestComponent';
+import TestDebounceComponent from './TestDebounceComponent'
 
 const App = () => {
 
   return (
     <Router>
-      <Route component={TestComponent} />
-      <Route component={SingleTestComponent} />
+      <Switch>
+        <Route path='/' exact>
+          <>
+            <TestComponent />
+            <SingleTestComponent />
+          </>
+        </Route>
+        <Route path='/debounce'>
+          <TestDebounceComponent />
+        </Route>
+      </Switch>
     </Router>
   )
 }
