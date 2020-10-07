@@ -10,6 +10,7 @@
 rollup.config.js
 yarn.lock
 
+.prettierrc
 .babelrc
 .editorconfig
 .eslintrc
