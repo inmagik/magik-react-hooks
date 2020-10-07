@@ -28,6 +28,7 @@ Available hooks
 * useQueryParam _(requires query-string)_
 * useRouterQueryParams _(requires query-string and react-router)_
 * useRouterQueryParam _(requires query-string and react-router)_
+* useDebounce
 
 ### useConstant
 Keeps a constant value stable across renders
@@ -214,6 +215,15 @@ const [params, setParams] = useRouterQueryParam(paramName, defaultValue, encDec,
 ```
 
 Obviously, you can use this in a component that is a (deep) child of a `Router`
+
+### useDebounce
+Debounce given value in given time.
+
+```js
+import useDebounce from 'magik-react-hooks/useDebounce'
+
+const debouncedValue = useDebounce(value, time)
+```
 
 ## License
 
