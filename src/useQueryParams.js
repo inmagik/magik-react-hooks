@@ -1,4 +1,4 @@
-import { useMemo, useCallback, useRef } from 'react'
+import { useMemo, useCallback, useRef, useEffect } from 'react'
 import qs from 'query-string'
 import useConstant from './useConstant'
 import { makeEncDec } from './EncDec/encdec'
@@ -11,9 +11,9 @@ export default function useQueryParams(queryString, setQueryString, qpEncoder = 
 
   const queryParams = useMemo(() => parser.decode(qs.parse(queryString)), [queryString, parser])
   const holder = useRef(queryParams)
-  if (queryParams !== holder.current) {
+  useEffect(() => {
     holder.current = queryParams
-  }
+  })
 
   const setQueryParams = useCallback((newQueryParamsOrCb, ...args) => {
     const currentQueryParams = holder.current
