@@ -15,11 +15,17 @@ export default function useQueryParams(queryString, setQueryString, qpEncoder = 
     holder.current = queryParams
   }
 
-  const setQueryParams = useCallback((newQueryParams, ...args) => {
+  const setQueryParams = useCallback((newQueryParamsOrCb, ...args) => {
     const currentQueryParams = holder.current
-    const nextParams = {
-      ...currentQueryParams,
-      ...newQueryParams
+
+    let nextParams
+    if (typeof newQueryParamsOrCb === 'function') {
+      nextParams = newQueryParamsOrCb(currentQueryParams)
+    } else {
+      nextParams = {
+        ...currentQueryParams,
+        ...newQueryParamsOrCb
+      }
     }
     const queryString = qs.stringify(parser.encode(nextParams), opts)
     setQueryString(queryString, ...args)

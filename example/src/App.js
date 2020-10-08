@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import TestComponent from './TestComponent'
 import SingleTestComponent from './SingleTestComponent';
 import TestDebounceComponent from './TestDebounceComponent'
+import TestDebounceQPComponent from './TestDebounceQPComponent'
 
 const App = () => {
 
@@ -18,6 +19,9 @@ const App = () => {
         </Route>
         <Route path='/debounce'>
           <TestDebounceComponent />
+        </Route>
+        <Route path='/debounce-query-params'>
+          <TestDebounceQPComponent />
         </Route>
       </Switch>
     </Router>
