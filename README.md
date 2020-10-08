@@ -29,6 +29,8 @@ Available hooks
 * useRouterQueryParams _(requires query-string and react-router)_
 * useRouterQueryParam _(requires query-string and react-router)_
 * useDebounce
+* useDebounceCallback
+* useRouterDebounceQueryParams
 
 ### useConstant
 Keeps a constant value stable across renders
@@ -217,13 +219,42 @@ const [params, setParams] = useRouterQueryParam(paramName, defaultValue, encDec,
 Obviously, you can use this in a component that is a (deep) child of a `Router`
 
 ### useDebounce
-Debounce given value in given time.
+Used to debounce a state. It is useful when you have a state that changes quickly and you need to debounce the execution of a side effect which depends on that state. This hook takes as argument the state to debounce and the debounce time (in milliseconds), and returns the debounced value.
 
 ```js
 import useDebounce from 'magik-react-hooks/useDebounce'
 
-const debouncedValue = useDebounce(value, time)
+const [state, setState] = useState(0)
+const debouncedValue = useDebounce(state, time)
 ```
+
+### useDebounceCallback
+This hook works just like `useCallback`, but returns a function that calls your callback in a debouced fashion.
+
+```js
+import useDebounceCallback from 'magik-react-hooks/useDebounceCallback'
+
+const [state, setState] = useState(0)
+const debCallback = useDebounceCallback(fun, delay = 0, [ /* deps of fun */ ])
+```
+
+### useRouterDebounceQueryParams
+This hook solves one of the major problems in react development: state debouncing. The common case for this is when you have a text input writing a value in the query string, which in turn is used to filter results of a REST API call. In this situation, you need both the real-time updated state (to feed the input) and a debounced state (to avoid repeated and useless API calls). This hooks hence returns a state and its debounced version, plus some helpers to set it immediately and in a debounced way. All control is then up to you
+
+```js
+import useRouterDebounceQueryParams from 'magik-react-hooks/useRouterDebounceQueryParams'
+
+const [
+  liveState, setLiveState, 
+  debouncedState, setDebouncedState
+] = useRouterDebounceQueryParams(qpEncoder, options)
+```
+
+`setLiveState` is immediate, and updates at the same time `liveState` and `debouncedState`, while `setDebouncedState` updates `liveState` immediately and `debouncedState` when `setDebouncedState` calls stop for a while. 
+
+You can configure the delay with `options.delay`, default value is 200ms.
+
+In short, `liveState` is always the up-to-date state, while `debouncedState` follows it according to debouncing mechanics. The query string follows the same dynamics of `debouncedState`. This allows for a better UX when using the browser navigation buttons.
 
 ## License
 
