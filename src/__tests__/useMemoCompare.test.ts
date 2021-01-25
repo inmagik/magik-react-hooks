@@ -1,10 +1,10 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 import { useState } from 'react'
-import { useMemoCompare } from '../useMemoCompare'
+import useMemoCompare from '../useMemoCompare'
 
 describe('useMemoCompare', () => {
   it('should memoize using deep object equality', () => {
-    const START_VALUE : any = { name: 'Gio Va' }
+    const START_VALUE: any = { name: 'Gio Va' }
     const { result } = renderHook(() => {
       const [rawValue, setRawValue] = useState(START_VALUE)
       const memoValue = useMemoCompare(rawValue)

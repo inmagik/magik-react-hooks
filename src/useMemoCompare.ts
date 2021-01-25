@@ -3,7 +3,10 @@ import isDeepEqual from 'fast-deep-equal'
 
 type ComparatorFn = (a: any, b: any) => boolean
 
-export function useMemoCompare<T>(obj: T, cmp: ComparatorFn = isDeepEqual): T {
+export default function useMemoCompare<T>(
+  obj: T,
+  cmp: ComparatorFn = isDeepEqual
+): T {
   const holder = useRef(obj)
   const prev = holder.current
 
