@@ -1,7 +1,11 @@
-import { useCallback, useEffect, useRef } from "react"
+import { useCallback, useEffect, useRef } from 'react'
 
-export default function useDebounceCallback(cb, delay = 0, args) {
-  const lastTimeoutId = useRef()
+export default function useDebounceCallback(
+  cb: (...args: any[]) => void,
+  delay = 0,
+  args: any[] = []
+) {
+  const lastTimeoutId = useRef<ReturnType<typeof setTimeout>>()
   const mounted = useRef(true)
 
   useEffect(() => {
