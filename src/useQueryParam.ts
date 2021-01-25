@@ -52,6 +52,15 @@ function useQueryParam(
   name: string,
   defaultValue?: any,
   qpEncoder?: ParamEncDecObj | ParamEncDecFn,
+  options?: StringifyOptions
+): [any, (value: any, ...args: any[]) => void]
+
+function useQueryParam(
+  queryString: string,
+  setQueryString: SetQueryParamCb,
+  name: string,
+  defaultValue?: any,
+  qpEncoder?: ParamEncDecObj | ParamEncDecFn,
   options: StringifyOptions = {}
 ): [any, (value: any, ...args: any[]) => void] {
   const parser = useConstant(() => makeParamEncDec(qpEncoder))
