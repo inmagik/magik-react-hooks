@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { qpDate, qpInt, qpNullable, qpBool } from '@inmagik/magik-react-hooks/qpUtils'
-import useDebounceQueryParams from '../../src/useDebounceQueryParams';
+import { qpDate, qpInt, qpNullable, qpBool } from 'magik-react-hooks/qpUtils'
+import useDebounceQueryParams from 'magik-react-hooks/useRouterDebounceQueryParams';
 
 const TestComponent = () => {
   const [params, setParams, debParams, setDebParams] = useDebounceQueryParams({

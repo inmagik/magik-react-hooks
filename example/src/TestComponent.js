@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
-import useRouterQueryParams from '@inmagik/magik-react-hooks/useRouterQueryParams';
-import { qpDate, qpInt, qpNullable, qpBool } from '@inmagik/magik-react-hooks/qpUtils'
+import useRouterQueryParams from 'magik-react-hooks/useRouterQueryParams';
+import { qpDate, qpInt, qpNullable, qpBool } from 'magik-react-hooks/qpUtils'
+
 
 const TestComponent = () => {
   const [params, setParams] = useRouterQueryParams({

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import useDebounce from '../../src/useDebounce'
+import useDebounce from 'magik-react-hooks/useDebounce'
 
 export default function TestDebounceComponent() {
   const [text, setText] = useState('')

@@ -20,6 +20,12 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "jsx": "react",
-    "noEmit": true
+    "noEmit": true,
+    "baseUrl": "./",
+    "paths": {
+      "magik-react-hooks/*": ["src/*"],
+    }
   },
+  "include": ["src/**/*", "example/**/*"],
+  "exclude": ["lib/**/*"]
 }

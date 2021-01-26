@@ -1,6 +1,6 @@
 import React from 'react'
-import useRouterQueryParam from '@inmagik/magik-react-hooks/useRouterQueryParam';
-import { qpDate } from '@inmagik/magik-react-hooks/qpUtils'
+import useRouterQueryParam from 'magik-react-hooks/useRouterQueryParam';
+import { qpDate } from 'magik-react-hooks/qpUtils'
 
 const SingleTestComponent = () => {
   const [date, setDate] = useRouterQueryParam('d', null, qpDate(), { encode: false })
