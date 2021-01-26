@@ -31,6 +31,7 @@ Available hooks
 * useDebounce
 * useDebounceCallback
 * useRouterDebounceQueryParams
+* useModalTrigger
 
 ### useConstant
 Keeps a constant value stable across renders
@@ -285,7 +286,7 @@ While using this hook you can separate the context of the modal and the "open" s
 
 ```js
 
-const [{ isOpen, value }, { open, toggle, close, onClose }] = useModalTrigger()
+const [{ isOpen, value }, { open, toggle, close, onClosed }] = useModalTrigger()
 
 // This is the way you open the modal "passing" it an item
 // The arg of the open function is used to populate the "value" part of the state of the trigger
@@ -299,7 +300,7 @@ return (
         isOpen={isOpen}
         toggle={toggle}
         item={value}
-        onClosed={onClose} {/* Note this line */}
+        onClosed={onClosed} {/* Note this line */}
       >
         {/* modal body omitted */}
       </Modal>

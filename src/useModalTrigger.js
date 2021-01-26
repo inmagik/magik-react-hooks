@@ -33,7 +33,7 @@ export default function useModalTrigger() {
     []
   )
 
-  const onClose = useCallback(
+  const onClosed = useCallback(
     () =>
       setState((s) => ({
         value: null,
@@ -47,9 +47,9 @@ export default function useModalTrigger() {
       open,
       toggle,
       close,
-      onClose,
+      onClosed,
     }),
-    [open, toggle, close, onClose]
+    [open, toggle, close, onClosed]
   )
 
   return [state, memoActions]
