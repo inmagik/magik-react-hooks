@@ -41,6 +41,13 @@ function useRouterQueryParam(
   name: string,
   defaultValue?: any,
   qpEncoder?: ParamEncDecObj | ParamEncDecFn,
+  options?: StringifyOptions
+): [any, (value: any, ...args: any[]) => void]
+
+function useRouterQueryParam(
+  name: string,
+  defaultValue?: any,
+  qpEncoder?: ParamEncDecObj | ParamEncDecFn,
   options: StringifyOptions = {}
 ): [any, (value: any, ...args: any[]) => void] {
   const location = useLocation()

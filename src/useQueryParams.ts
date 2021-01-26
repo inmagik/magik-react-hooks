@@ -62,9 +62,22 @@ function useQueryParams(
   queryString: string,
   setQueryString: SetQueryParamCb,
   qpEncoder?: ParamsEncDecObj | ParamsEncDecFn | ComposedParamsEncDec,
+  options?: StringifyOptions
+): [
+  Record<string, any>,
+  (
+    q: Record<string, any> | ((q: Record<string, any>) => Record<string, any>),
+    ...args: any[]
+  ) => void
+]
+
+function useQueryParams(
+  queryString: string,
+  setQueryString: SetQueryParamCb,
+  qpEncoder?: ParamsEncDecObj | ParamsEncDecFn | ComposedParamsEncDec,
   options: StringifyOptions = {}
 ): [
-  ParsedQuery,
+  Record<string, any>,
   (
     q: Record<string, any> | ((q: Record<string, any>) => Record<string, any>),
     ...args: any[]
