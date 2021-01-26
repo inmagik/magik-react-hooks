@@ -15,6 +15,7 @@ export default function useDebounceCallback(
     }
   }, [])
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const memoCb = useCallback(cb, args)
 
   const callback = useCallback(
