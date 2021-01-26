@@ -2,5 +2,6 @@
   "name": "magik-react-hooks/useRouterQueryParam",
   "private": true,
   "main": "../lib/useRouterQueryParam.cjs.js",
-  "module": "../lib/useRouterQueryParam.esm.js"
+  "module": "../lib/useRouterQueryParam.es.js",
+  "types": "../lib/useRouterQueryParam.d.ts"
 }

@@ -2,5 +2,6 @@
   "name": "magik-react-hooks/qpUtils",
   "private": true,
   "main": "../lib/qpUtils.cjs.js",
-  "module": "../lib/qpUtils.esm.js"
+  "module": "../lib/qpUtils.es.js",
+  "types": "../lib/qpUtils.d.ts"
 }
