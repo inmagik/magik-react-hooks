@@ -5,7 +5,7 @@ import usePrevious from '../usePrevious'
 
 describe('usePrevious', () => {
   it('should be undefined at first pass', () => {
-    const WhatsInMyHook = ({ valueOrFactory }) => {
+    const WhatsInMyHook = ({ valueOrFactory } : { valueOrFactory: any } ) => {
       const c = usePrevious(valueOrFactory)
       return (
         <div data-testid="hook-value">
@@ -23,7 +23,7 @@ describe('usePrevious', () => {
     expect(getByTestId('hook-value').textContent).toBe('undefined')
   })
   it('should always be late', () => {
-    const WhatsInMyHook = ({ valueOrFactory }) => {
+    const WhatsInMyHook = ({ valueOrFactory } : { valueOrFactory: any }) => {
       const c = usePrevious(valueOrFactory)
       return <div data-testid="hook-value">{c}</div>
     }

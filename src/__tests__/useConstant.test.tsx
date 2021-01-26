@@ -1,10 +1,10 @@
- 
+
 import React, { useState } from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import useConstant from '../useConstant'
 
-const WhatsInMyConstant = ({ valueOrFactory }) => {
+const WhatsInMyConstant = ({ valueOrFactory } : { valueOrFactory: any }) => {
   const c = useConstant(valueOrFactory)
   return (
     <div data-testid="constant-value">{c}</div>
@@ -38,7 +38,7 @@ describe('useConstant', () => {
 
     const producer = jest.fn(() => 3)
 
-    const MyComponent = ({ producer }) => {
+    const MyComponent = ({ producer } : { producer: any }) => {
       const c = useConstant(producer)
       const [a, setA] = useState(0)
       return (
