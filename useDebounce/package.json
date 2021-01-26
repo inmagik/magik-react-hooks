@@ -2,5 +2,6 @@
   "name": "magik-react-hooks/useDebounce",
   "private": true,
   "main": "../lib/useDebounce.cjs.js",
-  "module": "../lib/useDebounce.esm.js"
+  "module": "../lib/useDebounce.es.js",
+  "types": "../lib/useDebounce.d.ts"
 }

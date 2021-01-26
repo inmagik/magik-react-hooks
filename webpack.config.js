@@ -15,16 +15,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(t|j)sx?$/,
         exclude: /(node_modules)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-            plugins: [
-            ],
-          },
-        },
+        use: 'babel-loader'
       },
       {
         test: /\.css$/,
@@ -33,8 +26,9 @@ module.exports = {
     ],
   },
   resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
-      '@inmagik/magik-react-hooks': path.resolve(__dirname, 'src'),
+      'magik-react-hooks': path.resolve(__dirname, 'src'),
     },
   },
 }

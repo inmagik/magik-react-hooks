@@ -8,9 +8,9 @@ if (process.env.NODE_ENV !== 'production') {
   )
 }
 
-export default function useRouter() {
-  const location = useLocation()
-  const history = useHistory()
+export default function useRouter<T>() {
+  const location = useLocation<T>()
+  const history = useHistory<T>()
 
   return { location, history }
 }

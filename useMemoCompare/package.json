@@ -1,0 +1,7 @@
+{
+  "name": "magik-react-hooks/useMemoCompare",
+  "private": true,
+  "main": "../lib/useMemoCompare.cjs.js",
+  "module": "../lib/useMemoCompare.es.js",
+  "types": "../lib/useMemoCompare.d.ts"
+}

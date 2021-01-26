@@ -2,5 +2,6 @@
   "name": "magik-react-hooks/useModalTrigger",
   "private": true,
   "main": "../lib/useModalTrigger.cjs.js",
-  "module": "../lib/useModalTrigger.esm.js"
+  "module": "../lib/useModalTrigger.es.js",
+  "types": "../lib/useModalTrigger.d.ts"
 }
