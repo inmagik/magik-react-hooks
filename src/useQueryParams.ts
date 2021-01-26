@@ -38,7 +38,7 @@ function useQueryParams<T extends ParamsEncDecObj>(
   qpEncoder: T,
   options?: StringifyOptions
 ): MakeEncDecFromObj<T> extends ParamsEncDec<infer O, infer I>
-  ? [O, (value: Partial<I> | ((e: I) => I), ...args: any[]) => void]
+  ? [O, (value: Partial<I> | ((e: O) => I), ...args: any[]) => void]
   : never
 
 function useQueryParams<T extends ComposedParamsEncDec>(
