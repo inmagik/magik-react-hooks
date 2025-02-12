@@ -10,7 +10,6 @@ const hooks = fs
   .map(stripExtension)
 
 rimraf.sync('use*');
-rimraf.sync('qpUtils')
 
 hooks.forEach(hook => {
   fs.mkdirSync(hook);
@@ -22,12 +21,3 @@ hooks.forEach(hook => {
     types: '../lib/' + hook + '.d.ts'
   }, null, 2))
 })
-
-fs.mkdirSync('qpUtils');
-fs.writeFileSync('qpUtils/package.json', JSON.stringify({
-  name: 'magik-react-hooks/qpUtils',
-  private: true,
-  main: '../lib/qpUtils.cjs.js',
-  module: '../lib/qpUtils.es.js',
-  types: '../lib/qpUtils.d.ts'
-}, null, 2))

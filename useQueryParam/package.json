@@ -1,7 +1,0 @@
-{
-  "name": "magik-react-hooks/useQueryParam",
-  "private": true,
-  "main": "../lib/useQueryParam.cjs.js",
-  "module": "../lib/useQueryParam.es.js",
-  "types": "../lib/useQueryParam.d.ts"
-}

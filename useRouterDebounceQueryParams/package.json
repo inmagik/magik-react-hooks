@@ -1,7 +1,0 @@
-{
-  "name": "magik-react-hooks/useRouterDebounceQueryParams",
-  "private": true,
-  "main": "../lib/useRouterDebounceQueryParams.cjs.js",
-  "module": "../lib/useRouterDebounceQueryParams.es.js",
-  "types": "../lib/useRouterDebounceQueryParams.d.ts"
-}

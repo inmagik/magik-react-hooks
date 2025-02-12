@@ -1,7 +1,0 @@
-{
-  "name": "magik-react-hooks/useRouter",
-  "private": true,
-  "main": "../lib/useRouter.cjs.js",
-  "module": "../lib/useRouter.es.js",
-  "types": "../lib/useRouter.d.ts"
-}
