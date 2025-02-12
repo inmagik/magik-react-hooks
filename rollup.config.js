@@ -34,7 +34,6 @@ export default ['esm', 'cjs'].map(format => ({
       ...all,
       [stripExtension(hook)]: 'src/' + hook
     }), {}),
-    'qpUtils': 'src/qpUtils.ts'
   },
   output: [
     {
