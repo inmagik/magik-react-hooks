@@ -1,7 +1,0 @@
-{
-  "name": "magik-react-hooks/useDebounceCallback",
-  "private": true,
-  "main": "../lib/useDebounceCallback.cjs.js",
-  "module": "../lib/useDebounceCallback.es.js",
-  "types": "../lib/useDebounceCallback.d.ts"
-}

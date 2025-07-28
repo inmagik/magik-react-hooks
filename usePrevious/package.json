@@ -1,7 +1,0 @@
-{
-  "name": "magik-react-hooks/usePrevious",
-  "private": true,
-  "main": "../lib/usePrevious.cjs.js",
-  "module": "../lib/usePrevious.es.js",
-  "types": "../lib/usePrevious.d.ts"
-}

@@ -1,6 +1,6 @@
 {
   "name": "magik-react-hooks",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Collection of common (and useful) hooks",
   "author": "InMagik srl <info@inmagik.com>",
   "authors": [
@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": "inmagik/magik-react-hooks",
   "scripts": {
-    "prebuild": "rimraf lib && node scripts/makeDefs.js",
+    "prebuild": "rimraf lib",
     "test": "jest",
     "test-coverage": "jest --coverage",
     "dev-example": "webpack-dev-server",
@@ -18,12 +18,11 @@
     "start": "rollup -c -w"
   },
   "files": [
-    "lib",
-    "use*"
+    "lib"
   ],
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -68,5 +67,37 @@
     "@babel/runtime": "^7.12.5",
     "fast-deep-equal": "^3.1.3",
     "memoize-one": "^5.1.1"
+  },
+  "exports": {
+    "./useConstant": {
+      "import": "./lib/useConstant.es.js",
+      "require": "./lib/useConstant.cjs.js",
+      "types": "./lib/useConstant.d.ts"
+    },
+    "./useDebounce": {
+      "import": "./lib/useDebounce.es.js",
+      "require": "./lib/useDebounce.cjs.js",
+      "types": "./lib/useDebounce.d.ts"
+    },
+    "./useDebounceCallback": {
+      "import": "./lib/useDebounceCallback.es.js",
+      "require": "./lib/useDebounceCallback.cjs.js",
+      "types": "./lib/useDebounceCallback.d.ts"
+    },
+    "./useMemoCompare": {
+      "import": "./lib/useMemoCompare.es.js",
+      "require": "./lib/useMemoCompare.cjs.js",
+      "types": "./lib/useMemoCompare.d.ts"
+    },
+    "./useModalTrigger": {
+      "import": "./lib/useModalTrigger.es.js",
+      "require": "./lib/useModalTrigger.cjs.js",
+      "types": "./lib/useModalTrigger.d.ts"
+    },
+    "./usePrevious": {
+      "import": "./lib/usePrevious.es.js",
+      "require": "./lib/usePrevious.cjs.js",
+      "types": "./lib/usePrevious.d.ts"
+    }
   }
 }

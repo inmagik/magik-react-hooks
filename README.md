@@ -4,6 +4,9 @@
 # magik-react-hooks
 A collection of common (and useful) hooks
 
+## Typescript Warning
+This package uses `exports`section of package.json. If you are using TypeScript in your project, please make sure you set `moduleResolution` accordingly ([reference](https://www.typescriptlang.org/tsconfig/#moduleResolution))
+
 ## Install
 
 ```bash
